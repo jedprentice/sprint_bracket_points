@@ -1,5 +1,6 @@
 class PointsCalculator
   DROPS = 8
+  RACES = 24
   RANDOM_EMPTY_COLUMNS = [8, 17]
 
   attr_reader :driver, :points
@@ -10,7 +11,7 @@ class PointsCalculator
     array.delete_at(RANDOM_EMPTY_COLUMNS[1] - 1)
 
     @driver = array[0]
-    @points = array[3, array.length].map { |s| s.to_i }
+    @points = array[3, RACES].map { |s| s.to_i }
   end
 
   def total
