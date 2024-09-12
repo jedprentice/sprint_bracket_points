@@ -1,6 +1,6 @@
 require 'points_calculator'
 
-lines = File.open('sbrr-2023-points.csv') { |f| f.readlines }
+lines = File.open('sbrr-2024-points.csv') { |f| f.readlines }
 standings = []
 lines.each do |line|
   standings << PointsCalculator.new(line)

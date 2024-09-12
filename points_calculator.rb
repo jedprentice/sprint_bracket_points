@@ -1,12 +1,13 @@
 class PointsCalculator
-  DROPS = 9
-  RANDOM_EMPTY_COLUMN = 8
+  DROPS = 8
+  RANDOM_EMPTY_COLUMNS = [8, 17]
 
   attr_reader :driver, :points
 
   def initialize(data)
     array = data.split(',')
-    array.delete_at(RANDOM_EMPTY_COLUMN)
+    array.delete_at(RANDOM_EMPTY_COLUMNS[0])
+    array.delete_at(RANDOM_EMPTY_COLUMNS[1] - 1)
 
     @driver = array[0]
     @points = array[3, array.length].map { |s| s.to_i }
