@@ -3,7 +3,7 @@ class PointsCalculator
   RACES = 24
   RANDOM_EMPTY_COLUMNS = [8, 17]
 
-  attr_reader :driver, :points
+  attr_reader :driver, :points, :sorted, :best
 
   def initialize(data)
     array = data.split(',')
@@ -19,12 +19,12 @@ class PointsCalculator
   end
 
   def total_with_drops
-    sorted = points.sort.reverse
-    best = sorted[0, sorted.length - DROPS]
+    @sorted = points.sort.reverse
+    @best = sorted[0, sorted.length - DROPS]
     best.sum
   end
 
   def display
-    "#{driver}\t Total: #{total}\tWith Drops: #{total_with_drops}"
+    "\n#{driver}\t Total: #{total}\tWith Drops: #{total_with_drops}\nPoints #{points}\nSorted #{sorted}\nBest #{best}"
   end
 end
