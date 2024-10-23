@@ -1,3 +1,5 @@
+import csv
+
 DROPS = 8
 RACES = 25
 RANDOM_EMPTY_COLUMNS = [8, 17]
@@ -9,7 +11,7 @@ def parse_value(s: str) -> int:
     return int(s)
 
 
-class PointsCalculator:
+class DriverPoints:
     def __init__(self, data: list[str]):
         del data[RANDOM_EMPTY_COLUMNS[0]]
         del data[RANDOM_EMPTY_COLUMNS[1] - 1]
@@ -32,3 +34,14 @@ class PointsCalculator:
                 f"Points {self.points}\n"
                 f"Sorted {self.sorted}\n"
                 f"Best {self.best}")
+
+
+points = []
+with open("sbrr-2024-points.csv") as file:
+    rows = csv.reader(file)
+    for row in rows:
+        points.append(DriverPoints(row))
+
+points.sort(key=lambda p: p.total_with_drops(), reverse=True)
+for p in points:
+    print(p.display())
