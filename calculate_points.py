@@ -3,7 +3,7 @@ from points_calculator import PointsCalculator
 
 
 points = []
-with open("sbrr-2024-points.csv", newline="") as file:
+with open("sbrr-2024-points.csv") as file:
     rows = csv.reader(file)
     for row in rows:
         points.append(PointsCalculator(row))

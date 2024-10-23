@@ -1,5 +1,5 @@
 DROPS = 8
-RACES = 24
+RACES = 25
 RANDOM_EMPTY_COLUMNS = [8, 17]
 
 
@@ -15,7 +15,7 @@ class PointsCalculator:
         del data[RANDOM_EMPTY_COLUMNS[1] - 1]
         self.driver = data[0]
         self.points = []
-        for p in data[3:RACES]:
+        for p in data[3:]:
             self.points.append(parse_value(p))
 
     def total(self) -> int:
