@@ -37,7 +37,7 @@ class DriverPoints:
 
 
 points = []
-with open("sbrr-2024-points.csv") as file:
+with open("sbrr-2025-points.csv") as file:
     rows = csv.reader(file)
     for row in rows:
         points.append(DriverPoints(row))
