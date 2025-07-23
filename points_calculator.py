@@ -2,6 +2,7 @@ import csv
 
 DROPS = 8
 RACES = 25
+ROWS_TO_SKIP = 2
 RANDOM_EMPTY_COLUMNS = [8, 17]
 
 
@@ -39,6 +40,8 @@ class DriverPoints:
 points = []
 with open("sbrr-2025-points.csv") as file:
     rows = csv.reader(file)
+    for _ in range(ROWS_TO_SKIP):
+        next(rows)
     for row in rows:
         points.append(DriverPoints(row))
 
