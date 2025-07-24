@@ -3,7 +3,6 @@ import csv
 DROPS = 8
 RACES = 25
 ROWS_TO_SKIP = 2
-RANDOM_EMPTY_COLUMNS = [8, 17]
 
 
 def parse_value(s: str) -> int:
@@ -14,8 +13,6 @@ def parse_value(s: str) -> int:
 
 class DriverPoints:
     def __init__(self, data: list[str]):
-        del data[RANDOM_EMPTY_COLUMNS[0]]
-        del data[RANDOM_EMPTY_COLUMNS[1] - 1]
         self.driver = data[0]
         self.points = []
         for p in data[3:]:
