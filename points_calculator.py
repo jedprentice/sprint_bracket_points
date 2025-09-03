@@ -26,9 +26,11 @@ class DriverPoints:
         self.best = self.sorted[:(RACES - DROPS)]
         return sum(self.best)
 
-    def display(self) -> str:
-        return (f"\n{self.driver}\t Total: {self.total()}\t"
-                f"With Drops: {self.total_with_drops()}\n"
+    def display(self, verbose=False) -> str:
+        driver_total = f"\n{self.driver}\tTotal: {self.total()}\tWith Drops: {self.total_with_drops()}"
+        if not verbose:
+            return driver_total
+        return (f"{driver_total}\n"
                 f"Points {self.points}\n"
                 f"Sorted {self.sorted}\n"
                 f"Best {self.best}")
