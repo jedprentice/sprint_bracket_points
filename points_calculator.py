@@ -1,7 +1,7 @@
 import csv
 
-DROPS = 8
-RACES = 25
+DROPS = 6
+RACES = 23
 ROWS_TO_SKIP = 2
 
 
