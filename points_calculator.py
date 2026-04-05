@@ -1,7 +1,7 @@
 import csv
 
 DROPS = 6
-RACES = 23
+RACES = 22
 ROWS_TO_SKIP = 2
 
 
@@ -15,8 +15,10 @@ class DriverPoints:
     def __init__(self, data: list[str]):
         self.driver = data[0]
         self.points = []
-        for p in data[3:]:
+        # Trailing comma adds a zero at the end, skip it
+        for p in data[3:-1]:
             self.points.append(parse_value(p))
+        
 
     def total(self) -> int:
         return sum(self.points)
@@ -46,4 +48,4 @@ with open("sbrr-2025-points.csv") as file:
 
 points.sort(key=lambda p: p.total_with_drops(), reverse=True)
 for p in points:
-    print(p.display())
+    print(p.display(True))
