@@ -1,0 +1,25 @@
+[project]
+name = "sprint_bracket_points"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Jed Prentice", email = "jedprentice@gmail.com"},
+]
+dependencies = [
+    "pytest",
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[[tool.pdm.source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dependency-groups]
+dev = []
