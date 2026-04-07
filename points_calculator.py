@@ -18,7 +18,6 @@ class DriverPoints:
         # Trailing comma adds a zero at the end, skip it
         for p in data[3:-1]:
             self.points.append(parse_value(p))
-        
 
     def total(self) -> int:
         return sum(self.points)
