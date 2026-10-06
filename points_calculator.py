@@ -1,7 +1,7 @@
 import csv
 
 DROPS = 6
-RACES = 22
+RACES = 24
 ROWS_TO_SKIP = 2
 
 
@@ -38,7 +38,7 @@ class DriverPoints:
 
 
 points = []
-with open("sbrr-2025-points.csv") as file:
+with open("sbrr-2026-points.csv") as file:
     rows = csv.reader(file)
     for _ in range(ROWS_TO_SKIP):
         next(rows)
